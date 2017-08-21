@@ -112,4 +112,19 @@ class Gson
     {
         return $this->fromJson($this->toJson($object), JsonElement::class);
     }
+
+    /**
+     * Converts an object to array
+     * More safety method to convert existing object to array
+     *
+     * @param mixed $object
+     * @return array
+     * @throws \InvalidArgumentException
+     * @throws \Tebru\PhpType\Exception\MalformedTypeException If the type cannot be parsed
+     * @throws \Tebru\Gson\Exception\JsonParseException If the json cannot be decoded
+     */
+    public function toArray($object): array
+    {
+        return $this->fromJson($this->toJson($object), 'array');
+    }
 }
